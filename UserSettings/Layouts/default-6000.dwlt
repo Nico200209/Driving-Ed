@@ -338,13 +338,13 @@ MonoBehaviour:
   m_LastFolders:
   - Assets
   m_LastFoldersGridSize: -1
-  m_LastProjectPath: /Users/nicolasgarcia/Downloads/Driving Ed/DrivingEducationGame
+  m_LastProjectPath: /Users/nicolasgarcia/Downloads/Driving Ed
   m_LockTracker:
     m_IsLocked: 0
   m_FolderTreeState:
     scrollPos: {x: 0, y: 0}
-    m_SelectedIDs: 80d10000
-    m_LastClickedID: 53632
+    m_SelectedIDs: 34ab0000
+    m_LastClickedID: 43828
     m_ExpandedIDs: 0000000034ab0000
     m_RenameOverlay:
       m_UserAcceptedRename: 0
@@ -522,7 +522,7 @@ MonoBehaviour:
       scrollPos: {x: 0, y: 0}
       m_SelectedIDs: 
       m_LastClickedID: 0
-      m_ExpandedIDs: 26d6ffff
+      m_ExpandedIDs: 16fbffff
       m_RenameOverlay:
         m_UserAcceptedRename: 0
         m_Name: 
