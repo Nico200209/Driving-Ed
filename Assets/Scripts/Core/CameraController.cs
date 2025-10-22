@@ -2,15 +2,16 @@ using UnityEngine;
 
 public class CameraController : MonoBehaviour
 {
-    // Start is called once before the first execution of Update after the MonoBehaviour is created
-    void Start()
-    {
-        
-    }
+    public Transform targetTransform;
+    public Vector3 offset;
+    public Quaternion rotationOffset;
+    public float smoothSpeed = 0.125f;
 
-    // Update is called once per frame
-    void Update()
+
+    void FixedUpdate()
     {
-        
+        transform.position = Vector3.Lerp(transform.position, targetTransform.TransformPoint(offset), Time.deltaTime * smoothSpeed);
+        //targetTransform.LookAt(transform.position);
+        transform.rotation = Quaternion.Slerp(transform.rotation, targetTransform.rotation * rotationOffset, Time.deltaTime * smoothSpeed);
     }
 }
