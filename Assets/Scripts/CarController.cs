@@ -1,4 +1,5 @@
 using UnityEngine;
+using UnityEngine.InputSystem;
 
 [System.Serializable]
 public class Wheel
@@ -16,14 +17,40 @@ public enum WheelType
 public class CarController : MonoBehaviour
 {
     public Wheel[] wheels;
+    public Vector2 moveInput;
+    public float powerMultiplier = 1f;
 
-    void Start()
+    public float maxSteer = 30f;
+    public float wheelbase = 2.5f; // Distance between front and rear axles
+    public float trackwidth = 1.5f; // Distance between left and right
+
+    public void OnMove(InputValue value) => moveInput = value.Get<Vector2>();
+
+    void FixedUpdate()
     {
+        foreach (var wheel in wheels)
+        {
+            wheel.collider.motorTorque = moveInput.y * powerMultiplier;
+        }
+        float steer = moveInput.x * maxSteer;
+        if (moveInput.x > 0)
+        {
+            wheels[0].collider.steerAngle = Mathf.Rad2Deg * Mathf.Atan(wheelbase / (trackwidth / 2 + Mathf.Tan(Mathf.Deg2Rad * steer) * wheelbase));
+            wheels[1].collider.steerAngle = steer;
+        }
+        else if (moveInput.x < 0)
+        {
+            wheels[0].collider.steerAngle = steer;
+            wheels[1].collider.steerAngle = Mathf.Rad2Deg * Mathf.Atan(wheelbase / (-trackwidth / 2 + Mathf.Tan(Mathf.Deg2Rad * steer) * wheelbase));
+        }
+        else
+        {
+            wheels[0].collider.steerAngle = wheels[1].collider.steerAngle = 0;
+        }
 
-    }
-
-    void Update()
-    {
-
+        for (int i = 0; i < wheels.Length; i++)
+        {
+            wheels[i].collider.transform.localRotation = Quaternion.Euler(0, wheels[i].collider.steerAngle, 0);
+        }
     }
 }
