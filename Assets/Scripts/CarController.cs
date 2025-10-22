@@ -33,6 +33,8 @@ public class CarController : MonoBehaviour
             wheel.collider.motorTorque = moveInput.y * powerMultiplier;
         }
         float steer = moveInput.x * maxSteer;
+
+        //ToDo: Implement Math Lerp
         if (moveInput.x > 0) //If turning right
         {
             wheels[0].collider.steerAngle = Mathf.Rad2Deg * Mathf.Atan(wheelbase / (trackwidth / 2 + Mathf.Tan(Mathf.Deg2Rad * steer) * wheelbase));
