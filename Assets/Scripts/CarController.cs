@@ -28,6 +28,8 @@ public class CarController : MonoBehaviour
 
     void FixedUpdate()
     {
+        //ToDo: Check if wheels are present
+
         foreach (var wheel in wheels)
         {
             wheel.collider.motorTorque = moveInput.y * powerMultiplier;
@@ -49,10 +51,25 @@ public class CarController : MonoBehaviour
         {
             wheels[0].collider.steerAngle = wheels[1].collider.steerAngle = 0;
         }
-
         for (int i = 0; i < wheels.Length; i++)
         {
-            wheels[i].collider.transform.localRotation = Quaternion.Euler(0, wheels[i].collider.steerAngle, 0);
+            Quaternion Rot;
+            Vector3 Pos;
+            wheels[i].collider.GetWorldPose(out Pos, out Rot);
+            //wheels[i].collider.transform.rotation = Rot;
+
+            Transform[] ChildTransforms = new Transform[wheels[i].collider.transform.childCount];
+            int index = 0;
+            foreach(var item in ChildTransforms)
+            {
+                wheels[i].collider.transform.GetChild(index).rotation = Rot;
+                wheels[i].collider.transform.GetChild(index).position = Pos;
+                index++;
+            }
+
+            //wheels[i].collider.transform.position = Pos;
+            //ToDo: Add break Calipers Formula Below
+            //wheels[i].collider.transform.localRotation = Quaternion.Euler(0, wheels[i].collider.steerAngle, 0);
         }
     }
 }
