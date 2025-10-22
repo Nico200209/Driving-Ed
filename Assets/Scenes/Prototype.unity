@@ -1400,6 +1400,8 @@ GameObject:
   m_Component:
   - component: {fileID: 1197132748}
   - component: {fileID: 1197132747}
+  - component: {fileID: 1197132750}
+  - component: {fileID: 1197132749}
   m_Layer: 0
   m_Name: SedanCar
   m_TagString: Untagged
@@ -1458,6 +1460,62 @@ Transform:
   - {fileID: 1674286823}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1197132749
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1197132746}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 62899f850307741f2a39c98a8b639597, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Unity.InputSystem::UnityEngine.InputSystem.PlayerInput
+  m_Actions: {fileID: -944628639613478452, guid: 052faaac586de48259a63d0c4782560b, type: 3}
+  m_NotificationBehavior: 0
+  m_UIInputModule: {fileID: 0}
+  m_DeviceLostEvent:
+    m_PersistentCalls:
+      m_Calls: []
+  m_DeviceRegainedEvent:
+    m_PersistentCalls:
+      m_Calls: []
+  m_ControlsChangedEvent:
+    m_PersistentCalls:
+      m_Calls: []
+  m_ActionEvents: []
+  m_NeverAutoSwitchControlSchemes: 0
+  m_DefaultControlScheme: 
+  m_DefaultActionMap: 
+  m_SplitScreenIndex: -1
+  m_Camera: {fileID: 0}
+--- !u!114 &1197132750
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1197132746}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 3d01d91a111cb4853a8289071566cd93, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::CarController
+  wheels:
+  - collider: {fileID: 1045794905}
+    wheelType: 0
+  - collider: {fileID: 801118976}
+    wheelType: 0
+  - collider: {fileID: 363847685}
+    wheelType: 1
+  - collider: {fileID: 1674286824}
+    wheelType: 1
+  moveInput: {x: 0, y: 0}
+  powerMultiplier: 1000
+  maxSteer: 30
+  wheelbase: 2.5
+  trackwidth: 1.5
 --- !u!1 &1445862792
 GameObject:
   m_ObjectHideFlags: 0
