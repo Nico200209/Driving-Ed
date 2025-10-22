@@ -33,17 +33,17 @@ public class CarController : MonoBehaviour
             wheel.collider.motorTorque = moveInput.y * powerMultiplier;
         }
         float steer = moveInput.x * maxSteer;
-        if (moveInput.x > 0)
+        if (moveInput.x > 0) //If turning right
         {
             wheels[0].collider.steerAngle = Mathf.Rad2Deg * Mathf.Atan(wheelbase / (trackwidth / 2 + Mathf.Tan(Mathf.Deg2Rad * steer) * wheelbase));
             wheels[1].collider.steerAngle = steer;
         }
-        else if (moveInput.x < 0)
+        else if (moveInput.x < 0) //If turning left
         {
             wheels[0].collider.steerAngle = steer;
             wheels[1].collider.steerAngle = Mathf.Rad2Deg * Mathf.Atan(wheelbase / (-trackwidth / 2 + Mathf.Tan(Mathf.Deg2Rad * steer) * wheelbase));
         }
-        else
+        else //If not turning
         {
             wheels[0].collider.steerAngle = wheels[1].collider.steerAngle = 0;
         }
