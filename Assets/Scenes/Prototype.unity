@@ -1467,6 +1467,7 @@ GameObject:
   - component: {fileID: 1197132747}
   - component: {fileID: 1197132750}
   - component: {fileID: 1197132749}
+  - component: {fileID: 1197132751}
   m_Layer: 0
   m_Name: SedanCar
   m_TagString: Untagged
@@ -1563,6 +1564,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 3d01d91a111cb4853a8289071566cd93, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::CarController
+  carStats: {fileID: 0}
   wheels:
   - collider: {fileID: 1045794905}
     wheelType: 0
@@ -1572,11 +1574,23 @@ MonoBehaviour:
     wheelType: 1
   - collider: {fileID: 1674286824}
     wheelType: 1
-  moveInput: {x: 0, y: 0}
-  powerMultiplier: 1000
   maxSteer: 30
   wheelbase: 2.5
   trackwidth: 1.5
+  wheelTurnLerpSpeed: 1
+--- !u!114 &1197132751
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1197132746}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 83ebf811ccf9a4e89b749aa76ec2473e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::CarStats
+  MaxPowerNM: 1200
 --- !u!1 &1445862792
 GameObject:
   m_ObjectHideFlags: 0
